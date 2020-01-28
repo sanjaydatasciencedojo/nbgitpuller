@@ -147,13 +147,14 @@ require([
         if (typeof data.message == 'undefined') {
             location.reload();
         }
+        else {
         gsv.setProgressText('Error: ' + data.message);
         gsv.setProgressError(true);
         gsv.setTerminalVisibility(true);
         if (data.output) {
             gsv.term.write(data.output);
         }
-    });
+    }});
     gs.start();
 
     $('#header, #site').show();
