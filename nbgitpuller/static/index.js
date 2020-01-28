@@ -144,6 +144,9 @@ require([
     gs.addHandler('error', function(data) {
         progressTimers.forEach(function(timer)  { clearInterval(timer); });
         gsv.setProgressValue(100);
+        if (typeof data.message == 'undefined') {
+            location.reload();
+        }
         gsv.setProgressText('Error: ' + data.message);
         gsv.setProgressError(true);
         gsv.setTerminalVisibility(true);
